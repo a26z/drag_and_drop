@@ -51,7 +51,7 @@ const uploadAndShow = async function(files) {
             body: formData
         })
         let imgLink = await handleErrors(response);
-        console.log(imgLink);
+        console.log(imgLink || 'Link not included in error object.');
         } catch(err) {
             console.log('Something went wrong', err);
         }
