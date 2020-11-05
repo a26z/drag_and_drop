@@ -67,4 +67,3 @@ const uploadAndShow = async function(files) {
         progress.value += pVal;
     }
 }
-// test
