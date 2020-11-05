@@ -8,7 +8,7 @@ lines in 'module.js':
     let url = 'https://api.cloudinary.com/v1_1/<your_space_here>/upload';
     let preset = '<your_upload_preset_here>';
 
-Otherwise files won't be uploaded (progresss bar and files preview
+Otherwise files won't be uploaded (progress bar and files preview
 will work, though).
 
 Cheers.
