@@ -36,8 +36,8 @@ const handleErrors = async (resp) => {
 
 const uploadAndShow = async function(files) {
     fileList.innerHTML = '';
-    let url = 'https://api.cloudinary.com/v1_1/lucyintheskies/upload';
-    let preset = 'uthjpilr';
+    let url = 'https://api.cloudinary.com/v1_1/<your_space_here>/upload';
+    let preset = '<your_upload_preset_here>';
     let pVal = 100 / files.length;
 
     for (let i = 0; i < files.length; i++) {
