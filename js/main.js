@@ -11,7 +11,7 @@ fileSelect.addEventListener("click", clickHelper, false); // helper for click ev
 
 dropArea.addEventListener('drop', sendDrop, false); // uploads dropped file
 
-['dragenter', 'dragexit', 'drop'].forEach(eventName => {
+['dragenter', 'dragexit', 'dragover', 'drop'].forEach(eventName => {
     dropArea.addEventListener(eventName, function(e) {
         e.preventDefault();
         e.stopPropagation();
