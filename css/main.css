@@ -1,0 +1,31 @@
+body {
+    background-color: #3f3f3f;
+    font-family: sans-serif;
+    color: #00ff00;
+}
+img {
+    padding: 15px;
+}
+
+div {
+    padding: 15px
+}
+
+progress {
+    border-color: black;
+    width: 200px;
+    height: 20px;
+}
+
+#drop-area {
+    border: 2px dashed #fbfafa;
+    border-radius: 20px;
+    font-family: sans-serif;
+    margin: 100px auto;
+    margin-top: 20px;
+    padding: 20px;
+}
+
+#drop-area.highlight {
+    border-color: #00ff00;
+}

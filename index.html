@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="de">
+
+<head>
+	<meta charset="utf-8">
+	<meta content="width=device-width, initial-scale=1.0" name="viewport">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<title>Files MDN</title>
+</head>
+
+<body>
+	<main>
+	</main>
+	<div class="">
+		<label for="file">File progress:</label>
+		<progress id="progress-bar" max="100" value="0"> </progress>
+	</div>
+	<div id="drop-area">
+		<input type="file" id="fileElem" multiple style="display: none">
+		<button id="fileSelect">Pick your files</button>
+		<div id="fileList"></div>
+	</div>
+	<!-- ============== Javascript ============== -->
+	<script type="module" src="js/main.js"></script>
+</body>
+
+</html>
