@@ -5,8 +5,8 @@ Simple script for uploading images to a remote server (cloudinary).
 In order to upload files to Cloudinary, you'll have to edit these
 lines in 'module.js':
 
-    let url = 'https://api.cloudinary.com/v1_1/<your_space_here>/upload';
-    let preset = '<your_upload_preset_here>';
+const CDN_URL = null;       // here goes your URL string on cloudinary.com
+const CDN_PRESET = null;    // and here your cloudinary preset string
 
 Otherwise files won't be uploaded (progress bar and files preview
 will work, though).

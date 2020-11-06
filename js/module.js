@@ -1,7 +1,7 @@
 // import {CDN_PRESET, CDN_URL} from './access.js'
 
-const CDN_URL = null;
-const CDN_PRESET = null;
+const CDN_URL = null;       // here goes your URL string on cloudinary.com
+const CDN_PRESET = null;    // and here your cloudinary preset string
 
 const fileElem = document.getElementById('fileElem'); // change, hidden
 const fileSelect = document.getElementById('fileSelect') // click
