@@ -56,8 +56,7 @@ const uploadAndShow = async function(files) {
         } catch(err) {
             console.log('Something went wrong', err);
         }
-        // create preview
-        // document.getElementById('fileList').innerHTML += `<figure><img src='${URL.createObjectURL(files[i])}'>`
+        // generate preview
         let fig = document.createElement('figure');
         let caption = document.createElement('figcaption');
         let img = document.createElement('img');
@@ -68,9 +67,7 @@ const uploadAndShow = async function(files) {
         }
         fig.appendChild(img)
         fig.appendChild(caption)
-        // fileList.appendChild(fig);
         figFragment.appendChild(fig);
-        // run progress
         progress.value += pVal;
     }
         fileList.appendChild(figFragment);
