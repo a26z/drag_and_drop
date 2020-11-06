@@ -39,6 +39,7 @@ const uploadAndShow = async function(files) {
     let url = 'https://api.cloudinary.com/v1_1/<your_space_here>/upload';
     let preset = '<your_upload_preset_here>';
     let pVal = 100 / files.length;
+    let figFragment = document.createDocumentFragment();
 
     for (let i = 0; i < files.length; i++) {
         // upload files
@@ -56,14 +57,21 @@ const uploadAndShow = async function(files) {
             console.log('Something went wrong', err);
         }
         // create preview
-        const img = document.createElement('img');
+        // document.getElementById('fileList').innerHTML += `<figure><img src='${URL.createObjectURL(files[i])}'>`
+        let fig = document.createElement('figure');
+        let caption = document.createElement('figcaption');
+        let img = document.createElement('img');
         img.src = URL.createObjectURL(files[i])
-        img.onload = () => {
+        caption.innerHTML = `<a href=${img.src} target="_blank">view</a>`;
+        files[i].onload = () => {
             URL.revokeObjectURL(img.src);
         }
-        img.height = 120;
-        fileList.appendChild(img);
+        fig.appendChild(img)
+        fig.appendChild(caption)
+        // fileList.appendChild(fig);
+        figFragment.appendChild(fig);
         // run progress
         progress.value += pVal;
     }
+        fileList.appendChild(figFragment);
 }

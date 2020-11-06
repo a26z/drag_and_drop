@@ -5,10 +5,23 @@ body {
 }
 img {
     padding: 15px;
+    width: 180px;
+    padding-left: 0;
+    padding-bottom: 0;
 }
 
-div {
-    padding: 15px
+div#fileList {
+    display: flex;
+    padding: 15px;
+    flex-wrap: wrap;
+}
+a {
+    color: aliceblue;
+    font-size: 11px;
+}
+
+figcaption {
+    margin-top: 0px;
 }
 
 progress {
@@ -24,6 +37,7 @@ progress {
     margin: 100px auto;
     margin-top: 20px;
     padding: 20px;
+    max-width: 900px;
 }
 
 #drop-area.highlight {
