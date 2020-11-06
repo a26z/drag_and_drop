@@ -62,7 +62,7 @@ const uploadAndShow = async function(files) {
             URL.revokeObjectURL(img.src);
         }
         img.height = 120;
-        await fileList.appendChild(img);
+        fileList.appendChild(img);
         // run progress
         progress.value += pVal;
     }
