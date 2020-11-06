@@ -34,6 +34,8 @@ const handleErrors = async (resp) => {
     }
 }
 
+// 
+
 const uploadAndShow = async function(files) {
     fileList.innerHTML = '';
     let url = 'https://api.cloudinary.com/v1_1/<your_space_here>/upload';
