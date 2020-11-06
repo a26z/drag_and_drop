@@ -37,9 +37,6 @@ const handleErrors = async (resp) => {
     }
 }
 
-// upload and show besteht aus zwei Funktionen:
-// 'upload' und 'show'
-
 const showFiles = function(file) {
     const img = document.createElement('img');
     img.src = URL.createObjectURL(file)
@@ -70,50 +67,8 @@ const uploadFiles = async function(file) {
     showFiles(file)
 }
 
-// const showFiles = function(file) {
-//     const img = document.createElement('img');
-//     img.src = URL.createObjectURL(file)
-//     img.onload = () => {
-//         URL.revokeObjectURL(img.src);
-//     }
-//     img.height = 120;
-//     fileList.appendChild(img);
-//     // progress.value += pVal; // progress bar
-// }
-
-
 const uploadAndShow = async function(files) {
     Array.from(files).forEach(file => {
         uploadFiles(file);
     })
-
-    // fileList.innerHTML = '';
-    // let pVal = 100 / files.length;
-    //
-    // for (let i = 0; i < files.length; i++) {
-    //     // upload files
-    //     let formData = new FormData();
-    //     formData.append('upload_preset', preset)
-    //     formData.append('file', files[i]);
-    //     try {
-    //         let response = await fetch(url, {
-    //             method: 'POST',
-    //             body: formData
-    //         })
-    //         let imgLink = await handleErrors(response);
-    //         console.log(imgLink || 'Link not included in error object.');
-    //     } catch (err) {
-    //         console.log('Something went wrong', err);
-    //     }
-    //     // create preview
-    //     const img = document.createElement('img');
-    //     img.src = URL.createObjectURL(files[i])
-    //     img.onload = () => {
-    //         URL.revokeObjectURL(img.src);
-    //     }
-    //     img.height = 120;
-    //     fileList.appendChild(img);
-    //     // run progress
-    //     progress.value += pVal;
-    // }
 }
