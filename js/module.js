@@ -5,6 +5,9 @@ const progress = document.getElementById('progress-bar');
 
 export const dropArea = document.getElementById('drop-area'); // drop div
 
+let url = 'https://api.cloudinary.com/v1_1/<your_space_here>/upload';
+let preset = '<your_upload_preset_here>';
+
 export const sendFiles = () => {
     const files = fileElem.files;
     uploadAndShow(files);
@@ -26,7 +29,7 @@ export const sendDrop = e => {
 
 const handleErrors = async (resp) => {
     let respJson = await resp.json();
-    if(!resp.ok){
+    if (!resp.ok) {
         console.log(resp.statusText, respJson);
     } else {
         console.log(respJson);
@@ -34,38 +37,83 @@ const handleErrors = async (resp) => {
     }
 }
 
-// 
+// upload and show besteht aus zwei Funktionen:
+// 'upload' und 'show'
 
-const uploadAndShow = async function(files) {
+const showFiles = function(file) {
+    const img = document.createElement('img');
+    img.src = URL.createObjectURL(file)
+    img.onload = () => {
+        URL.revokeObjectURL(img.src);
+    }
+    img.height = 120;
+    fileList.appendChild(img);
+    // progress.value += pVal; // progress bar
+}
+
+const uploadFiles = async function(file) {
     fileList.innerHTML = '';
-    let url = 'https://api.cloudinary.com/v1_1/<your_space_here>/upload';
-    let preset = '<your_upload_preset_here>';
-    let pVal = 100 / files.length;
-
-    for (let i = 0; i < files.length; i++) {
-        // upload files
-        let formData = new FormData();
-        formData.append('upload_preset', preset)
-        formData.append('file', files[i]);
-        try {
-            let response = await fetch(url, {
+    // let pVal = 100 / arr.length;
+    let formData = new FormData();
+    formData.append('upload_preset', preset);
+    formData.append('file', file);
+    try {
+        let response = await fetch(url, {
             method: 'POST',
             body: formData
         })
         let imgLink = await handleErrors(response);
         console.log(imgLink || 'Link not included in error object.');
-        } catch(err) {
-            console.log('Something went wrong', err);
-        }
-        // create preview
-        const img = document.createElement('img');
-        img.src = URL.createObjectURL(files[i])
-        img.onload = () => {
-            URL.revokeObjectURL(img.src);
-        }
-        img.height = 120;
-        fileList.appendChild(img);
-        // run progress
-        progress.value += pVal;
+    } catch (err) {
+        console.log('Something went wrong', err);
     }
+    showFiles(file)
+}
+
+// const showFiles = function(file) {
+//     const img = document.createElement('img');
+//     img.src = URL.createObjectURL(file)
+//     img.onload = () => {
+//         URL.revokeObjectURL(img.src);
+//     }
+//     img.height = 120;
+//     fileList.appendChild(img);
+//     // progress.value += pVal; // progress bar
+// }
+
+
+const uploadAndShow = async function(files) {
+    Array.from(files).forEach(file => {
+        uploadFiles(file);
+    })
+
+    // fileList.innerHTML = '';
+    // let pVal = 100 / files.length;
+    //
+    // for (let i = 0; i < files.length; i++) {
+    //     // upload files
+    //     let formData = new FormData();
+    //     formData.append('upload_preset', preset)
+    //     formData.append('file', files[i]);
+    //     try {
+    //         let response = await fetch(url, {
+    //             method: 'POST',
+    //             body: formData
+    //         })
+    //         let imgLink = await handleErrors(response);
+    //         console.log(imgLink || 'Link not included in error object.');
+    //     } catch (err) {
+    //         console.log('Something went wrong', err);
+    //     }
+    //     // create preview
+    //     const img = document.createElement('img');
+    //     img.src = URL.createObjectURL(files[i])
+    //     img.onload = () => {
+    //         URL.revokeObjectURL(img.src);
+    //     }
+    //     img.height = 120;
+    //     fileList.appendChild(img);
+    //     // run progress
+    //     progress.value += pVal;
+    // }
 }
