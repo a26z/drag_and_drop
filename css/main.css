@@ -8,6 +8,7 @@ img {
     width: 180px;
     padding-left: 0;
     padding-bottom: 0;
+    padding-right: 0;
 }
 
 div#fileList {
@@ -16,12 +17,15 @@ div#fileList {
     flex-wrap: wrap;
 }
 a {
-    color: aliceblue;
-    font-size: 11px;
+    color: #00ff00;
 }
 
 figcaption {
     margin-top: 0px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 10px;
+    color: aliceblue;
 }
 
 progress {
