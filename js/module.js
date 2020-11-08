@@ -6,6 +6,7 @@ const CDN_PRESET = null;    // and here your cloudinary preset string
 const fileElem = document.getElementById('fileElem'); // change, hidden
 const fileSelect = document.getElementById('fileSelect') // click
 const fileList = document.getElementById('fileList'); // display here
+const card = document.getElementById('card');
 const progress = document.getElementById('progress-bar');
 
 export const dropArea = document.getElementById('drop-area'); // drop div
@@ -62,9 +63,25 @@ const uploadAndShow = async function(files) {
             }
         }
         // generate preview
+        let card = document.createElement('article');
+        // card.className = 'card';
+
         let fig = document.createElement('figure');
-        let caption = document.createElement('figcaption');
+        // fig.className = 'image';
+
+        let head = document.createElement('header');
+        // head.className = 'card-header';
+
+        let cardTitle = document.createElement('p');
+        // cardTitle.className = 'card-header-title'
+
         let img = document.createElement('img');
+        // img.className = 'card-image';
+
+        let caption = document.createElement('figcaption');
+        // caption.className = 'content';
+
+        card.appendChild(fig);
         fig.appendChild(img)
         fig.appendChild(caption)
         img.src = URL.createObjectURL(files[i])
@@ -72,8 +89,9 @@ const uploadAndShow = async function(files) {
         files[i].onload = () => {
             URL.revokeObjectURL(img.src);
         }
-        figFragment.appendChild(fig);
+        figFragment.appendChild(card);
         progress.value += pVal;
     }
-    fileList.appendChild(figFragment);
+   fileList.appendChild(figFragment);
+    // card.appendChild(figFragment);
 }

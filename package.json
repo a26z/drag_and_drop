@@ -1,0 +1,26 @@
+{
+  "name": "drag_and_drop",
+  "version": "1.0.0",
+  "description": "Simple script for uploading images to a remote server (cloudinary).",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "bulma": "^0.9.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "css-build": "node-sass --watch --omit-source-map-url sass -o css",
+    "serve": "browser-sync --files index.html,css/main.css,js/*.js",
+    "start": "npm run css-build & npm run serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/a26z/drag_and_drop.git"
+  },
+  "author": "Christian Schmidt",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/a26z/drag_and_drop/issues"
+  },
+  "homepage": "https://github.com/a26z/drag_and_drop#readme"
+}
